@@ -1,4 +1,4 @@
-package net.brianpowers.devlocator.controller;
+package net.brianpowers.blsviewer.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
