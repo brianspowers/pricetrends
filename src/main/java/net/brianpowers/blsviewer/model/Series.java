@@ -15,8 +15,14 @@ public class Series {
         return seriesId;
     }
 
+    @JsonProperty("seriesData")
     public List<SeriesItem> getData() {
         return data;
+    }
+
+    @JsonProperty("data")
+    public void setData(List<SeriesItem> data) {
+        this.data = data;
     }
 
     @Override

@@ -20,15 +20,14 @@ public class BlsDataResource {
     @Autowired
     private BlsDataServiceClient blsDataServiceClient;
 
-    @Path("/average_price")
+    @Path("average_price/{areaItemCode}")
     @GET
     @Produces("application/json")
-    public Series areaCodes(@QueryParam("area") String areaCode, @QueryParam("item") String itemCode) {
-        if (Strings.isNullOrEmpty(areaCode) || Strings.isNullOrEmpty(itemCode)) {
+    public Series areaCodes(@PathParam("areaItemCode") String seriesCode) {
+        if (Strings.isNullOrEmpty(seriesCode)) {
             throw new WebApplicationException("Invalid Area or Item code received.", Response.Status.BAD_REQUEST);
         }
 
-        String seriesCode = "APU" + areaCode + itemCode;
         Series blsData = blsDataServiceClient.getBlsData(seriesCode);
         if (blsData != null) {
             return blsData;
