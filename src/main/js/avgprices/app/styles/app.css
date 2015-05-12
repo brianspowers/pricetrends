@@ -1,0 +1,11 @@
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.top-border {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #e5e5e5;
+}
+

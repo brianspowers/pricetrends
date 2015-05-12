@@ -1,11 +1,13 @@
 package net.brianpowers.blsviewer.api;
 
+import net.brianpowers.blsviewer.model.AreaItemCode;
 import net.brianpowers.blsviewer.service.BlsCodesDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,28 +21,18 @@ public class CodesResource {
     @Autowired
     private BlsCodesDao blsCodesDao;
 
-    @Path("area")
+    @Path("areas")
     @GET
     @Produces("application/json")
-    public Map<String, String> areaCodes(@QueryParam("request") String requestType) {
-        BlsRequestType blsRequestType = BlsRequestType.fromString(requestType);
-        try {
-            return blsCodesDao.getAreaCodes(blsRequestType);
-        } catch (IllegalArgumentException e) {
-            throw new WebApplicationException("Bad or unsupported request_type", Response.Status.BAD_REQUEST);
-        }
+    public List<AreaItemCode> areaCodes() {
+        return blsCodesDao.getAreaCodes(BlsRequestType.AVERAGE_PRICE);
     }
 
-    @Path("item")
+    @Path("items")
     @GET
     @Produces("application/json")
-    public Map<String, String> itemCodes(@QueryParam("request") String requestType) {
-        BlsRequestType blsRequestType = BlsRequestType.fromString(requestType);
-        try {
-            return blsCodesDao.getItemCodes(blsRequestType);
-        } catch (IllegalArgumentException e) {
-            throw new WebApplicationException("Bad or unsupported request_type", Response.Status.BAD_REQUEST);
-        }
+    public List<AreaItemCode> itemCodes() {
+        return blsCodesDao.getItemCodes(BlsRequestType.AVERAGE_PRICE);
     }
 
 }

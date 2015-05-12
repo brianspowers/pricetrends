@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'devlocator',
+    modulePrefix: 'avgprices',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
