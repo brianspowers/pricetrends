@@ -47,12 +47,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Github API client -->
-        <dependency>
-            <groupId>org.eclipse.mylyn.github</groupId>
-            <artifactId>org.eclipse.egit.github.core</artifactId>
-            <version>2.1.5</version>
-        </dependency>
         <!-- Google Guava, provides nice Collections function, a local caching implementation, and other conveniences
         such as a toString convenience helper -->
         <dependency>
