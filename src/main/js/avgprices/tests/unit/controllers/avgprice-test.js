@@ -3,9 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:avgprice/series', {
+moduleFor('controller:avgprice', {
   // Specify the other units that are required for this test.
-  needs: ['controller:avgprice']
+  // needs: ['controller:foo']
 });
 
 // Replace this with your real tests.

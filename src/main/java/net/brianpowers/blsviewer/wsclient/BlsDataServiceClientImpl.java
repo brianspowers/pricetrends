@@ -22,22 +22,24 @@ public class BlsDataServiceClientImpl implements BlsDataServiceClient, Initializ
 
     public static final Logger logger = LoggerFactory.getLogger(BlsDataServiceClientImpl.class);
     private final Environment env;
+    private final RestTemplate restTemplate;
 
     @Autowired
-    public BlsDataServiceClientImpl(Environment env) {
+    public BlsDataServiceClientImpl(Environment env, RestTemplate restTemplate) {
         this.env = env;
+        this.restTemplate = restTemplate;
     }
 
     @Override
     public Series getBlsData(String series) {
         String apiKey = env.getProperty("apiKey");
+        String blsUrl = env.getProperty("blsUrl");
         Series resultSeries = null;
-        RestTemplate restTemplate = new RestTemplate();
 
         BlsDataRequest request = new BlsDataRequest(series, apiKey);
         BlsDataResponse response = null;
         try {
-            response = restTemplate.postForObject("http://api.bls.gov/publicAPI/v2/timeseries/data/", request, BlsDataResponse.class);
+            response = restTemplate.postForObject(blsUrl, request, BlsDataResponse.class);
         } catch (RestClientException e) {
             logger.error("Error accessing BLS web service for key: {}.", series, e);
         }

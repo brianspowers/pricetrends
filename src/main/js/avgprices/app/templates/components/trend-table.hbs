@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Month
+      </th>
+      <th>
+        Average Price
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each seriesData as |seriesItem|}}
+    <tr>
+      <td>
+        {{seriesItem.periodName}} {{seriesItem.year}}
+      </td>
+      <td>
+        {{seriesItem.value}}
+      </td>
+    </tr>  
+  {{/each}}
+  </tbody>
+</table>

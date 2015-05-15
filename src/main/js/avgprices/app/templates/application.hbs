@@ -1,1 +1,18 @@
-{{outlet}}
+<div class="header clearfix">
+  <div class="logo">
+    {{link-to "PriceTrends" "index" class="h1"}}
+  </div>
+  <div class="header-secondary">
+    <h5>
+    Keep track of where prices are going on everyday commodities by visualizing some data from the U.S. Department of Labor!
+    </h5>
+  </div>
+</div>
+<div class="main-content">
+  <div class="container">
+    {{outlet}}
+  </div>
+</div>
+<div class="footer">
+  Data provided by the United States Department of Labor Bureau of Labor Statistics public API.  <a href="http://www.bls.gov" target="_blank">BLS.gov</a> cannot vouch for the data or analyses derived from these data after the data have been retrieved from <a href="http://www.bls.gov" target="_blank">BLS.gov</a>.
+</div>

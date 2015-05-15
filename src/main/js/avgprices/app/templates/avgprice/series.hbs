@@ -1,2 +1,36 @@
-This is a series
-{{outlet}}
+<div class="row">
+  {{#if seriesHasData}}
+    <div class="col-md-12 trend-container">
+      <h5>Choose Data Visualization</h5>
+      <div class="btn-group" role="group" aria-label="...">
+        <button 
+          type="button" 
+          {{bind-attr class=":btn showTrendTable:btn-primary:btn-default"}}
+          {{action 'enableVis' 'showTrendTable'}}>Tabular</button>
+        <button 
+          type="button" 
+          {{bind-attr class=":btn showLineGraph:btn-primary:btn-default"}}
+          {{action 'enableVis' 'showLineGraph'}}>Line Graph</button>
+        <button 
+          type="button" 
+          {{bind-attr class=":btn showBarGraph:btn-primary:btn-default"}}
+          {{action 'enableVis' 'showBarGraph'}}>Bar Graph</button>
+      </div>
+      <hr/>
+      {{#if showTrendTable}}
+        {{trend-table seriesData=descendingSeriesData}}
+      {{/if}}
+      {{#if showLineGraph}}
+        {{line-graph seriesData=ascendingSeriesData}}
+      {{/if}}
+      {{#if showBarGraph}}
+        {{bar-graph seriesData=ascendingSeriesData}}
+      {{/if}}
+    </div>
+  {{else}}
+    <div class="col-md-8 col-md-offset-2">
+      <h3>No data found for the selected Area and Item combination.</h3>
+      <h5>If you are having trouble finding the right combination, start with "U.S. city average" for Area.  It has data for more items than all other regions.</h5>
+    </div>
+  {{/if}}
+</div>

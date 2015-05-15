@@ -22,4 +22,10 @@ var app = new EmberApp({
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
+app.import('bower_components/select2-bootstrap-css/select2-bootstrap.css');
+
+app.import('bower_components/flot/jquery.flot.js');
+app.import('bower_components/flot/jquery.flot.resize.js');
+app.import('bower_components/flot/jquery.flot.time.js');
+
 module.exports = app.toTree();
