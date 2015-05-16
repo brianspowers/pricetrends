@@ -78,6 +78,7 @@ PriceTrends can be deployed to Heroku by simply creating a new application and p
 
 ## Final Thoughts
 * Spring Boot did turn out to be a great way to scaffold a web application really quickly.  The integration with Jersey was painless, and the dependency injection system worked well once I learned a few of its quirks.
+* The Bureau of Labor Statistics API turned out to not be super reliable, returning a fairly high number of REQUEST_FAILED responses.  In light of this, I would have liked to implement some kind of wait & retry logic on my server's back-end.
 * Currently the list of Areas and Items that the server provides are stored internally as plain Lists.  I would like to move these either into an embedded or standalone database instance.
 * Developing the client app with Ember CLI was a good experience, mainly due to its use of Babel, making a lot of the new ES6 syntax available as well as code organization with modules.
 * I used Ember Data as the client-side data store.  While this worked great once it was properly configured, it took a little more wrangling than I would have liked to get it playing nice with the back-end.  If I did this over again, I would either drop Ember Data entirely, or I would have designed the web service to more exactly match the JSON response format that Ember Data was looking for.
